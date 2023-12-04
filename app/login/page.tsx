@@ -1,80 +1,56 @@
 'use client'
 import { Input } from "@nextui-org/react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Button, ButtonGroup } from "@nextui-org/react";
+import Register from './components/register'
+import LoginForm from './components/login'
+import UpdatePassword from './components/updatePassword'
 
 export default function Login() {
+    const [isLogin,setIsLogin] = useState(true)
+    const [isRegister,setIsRegister] = useState(false)
+    const [isUpdatePwd,setIsUpdatePwd] = useState(false)
+    const [btnName,setBtnName] = useState('登录')
+
     useEffect(() => {
 
     })
+
+    const canLogin = () =>{
+        return !!isLogin&&!isUpdatePwd
+    }
+
+    const canRegister = () =>{
+        return !!isRegister&&!isUpdatePwd
+    }
+
+    const toRegister = () =>{
+        setIsRegister(true)
+        setIsLogin(false)
+        setBtnName('注册')
+    }
+
+    const toLogin = ()=>{
+        setIsRegister(false)
+        setIsLogin(true)
+        setBtnName('登录')
+    }
+
+    const toUpdatePsw = ()=>{
+        setIsUpdatePwd(true)
+        setBtnName('修改')
+    }
 
     return (
         <div className="bg-white min-h-screen flex justify-center items-center">
             <div className="">
                 <div className="pb-4 text-center">会议室预定系统</div>
-                <Input
-                    isClearable
-                    type="email"
-                    label="用户名"
-                    variant="bordered"
-                    placeholder="输入用户名"
-                    onClear={() => console.log("input cleared")}
-                    className="max-w-xs mb-4"
-                />
-                <Input
-                    isClearable
-                    type="email"
-                    label="昵称"
-                    variant="bordered"
-                    placeholder="Enter your email"
-                    onClear={() => console.log("input cleared")}
-                    className="max-w-xs mb-4"
-                />
-                <Input
-                    isClearable
-                    type="email"
-                    label="密码"
-                    variant="bordered"
-                    placeholder="输入用户名"
-                    onClear={() => console.log("input cleared")}
-                    className="max-w-xs mb-4"
-                />
-                <Input
-                    isClearable
-                    type="email"
-                    label="确认密码"
-                    variant="bordered"
-                    placeholder="Enter your email"
-                    onClear={() => console.log("input cleared")}
-                    className="max-w-xs mb-4"
-                />
-                <Input
-                    isClearable
-                    type="email"
-                    label="邮箱"
-                    variant="bordered"
-                    placeholder="输入用户名"
-                    onClear={() => console.log("input cleared")}
-                    className="max-w-xs mb-4"
-                />
-                <div className="flex items-center mb-4 ">
-                    <Input
-                        isClearable
-                        type="email"
-                        label="验证码"
-                        variant="bordered"
-                        placeholder="Enter your email"
-                        onClear={() => console.log("input cleared")}
-                        className="max-w-xs"
-                    />
-                    <Button color="primary" className="ml-3">
-                        发送验证码
-                    </Button>
-                </div>
-                <div className="float-right">已有账号？去登录</div>
+                {canRegister()&&<Register toLogin={toLogin}></Register>}
+                {canLogin()&&<LoginForm toRegister={toRegister} toUpdatePsw={toUpdatePsw}></LoginForm>}
+                {isUpdatePwd&&<UpdatePassword></UpdatePassword>}
                 <div className="text-center">
                     <Button color="primary" className="mt-5 ">
-                        注册
+                        {btnName}
                     </Button>
                 </div>
 
