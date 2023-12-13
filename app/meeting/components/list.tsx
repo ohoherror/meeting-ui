@@ -1,6 +1,6 @@
 'use client'
 import React from "react";
-import { Table, Input, Button, TableHeader, TableColumn, TableBody, TableRow, TableCell, getKeyValue } from "@nextui-org/react";
+// import { Table, Input, Button, TableHeader, TableColumn, TableBody, TableRow, TableCell, getKeyValue } from "@nextui-org/react";
 import FormCreate from './formCreate'
 
 const rows = [
@@ -52,7 +52,7 @@ const columns = [
 export default function MeetingList() {
     return (
         <>
-            <div className="flex mb-4 px-6">
+            {/* <div className="flex mb-4 px-6">
                 {columns.map(ele => (
                     <Input
                         key={ele.key}
@@ -64,10 +64,10 @@ export default function MeetingList() {
                 <Button color="primary">
                     搜索会议室
                 </Button>
-            </div>
+            </div> */}
 
             <FormCreate></FormCreate>
-            <Table aria-label="Example table with dynamic content">
+            {/* <Table aria-label="Example table with dynamic content">
                 <TableHeader columns={columns}>
                     {(column) => <TableColumn key={column.key}>{column.label}</TableColumn>}
                 </TableHeader>
@@ -78,7 +78,7 @@ export default function MeetingList() {
                         </TableRow>
                     )}
                 </TableBody>
-            </Table>
+            </Table> */}
         </>
     );
 }

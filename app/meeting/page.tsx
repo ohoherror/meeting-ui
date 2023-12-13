@@ -1,12 +1,29 @@
 'use client'
 import React from "react";
-import {Tabs, Tab, Card, CardBody} from "@nextui-org/react";
+// import {Tabs, Tab, Card, CardBody} from "@nextui-org/react";
 import MeetingList from './components/list'
+import { Tabs } from 'antd';
 
 export default function App() {
-  return (
-    <div className="flex w-full flex-col">
-      <Tabs aria-label="Options">
+    const items = [
+        {
+            key: '1',
+            label: '会议室列表',
+            children: <MeetingList></MeetingList>
+        }
+    ]
+    const onChange = () => {
+
+    }
+    return (
+        <div className="flex w-full flex-col">
+            <Tabs
+                defaultActiveKey="1"
+                items={items}
+                onChange={onChange}
+                indicatorSize={(origin) => origin - 16}
+            />
+            {/* <Tabs aria-label="Options">
         <Tab key="photos" title="会议室列表">
           <MeetingList></MeetingList>
         </Tab>
@@ -18,7 +35,7 @@ export default function App() {
           </Card>  
         </Tab>
    
-      </Tabs>
-    </div>  
-  );
+      </Tabs> */}
+        </div>
+    );
 }

@@ -1,10 +1,9 @@
 'use client'
-import { Input } from "@nextui-org/react";
 import { useEffect, useState } from "react";
-import { Button, ButtonGroup } from "@nextui-org/react";
 import Register from './components/register'
 import LoginForm from './components/login'
 import UpdatePassword from './components/updatePassword'
+import { Button } from 'antd';
 
 export default function Login() {
     const [isLogin,setIsLogin] = useState(true)

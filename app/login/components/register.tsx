@@ -1,64 +1,40 @@
 'use client'
-import { Input } from "@nextui-org/react";
+
 import { useEffect } from "react";
-import { Button, ButtonGroup } from "@nextui-org/react";
+import { Button, Input } from 'antd';
 
 export default function Register(props:any) {
     return (
         <div>
-            <Input
-                isClearable
-                type="email"
-                label="用户名"
-                variant="bordered"
-               
-                onClear={() => console.log("input cleared")}
-                className="max-w-xs mb-4"
-            />
-            <Input
-                isClearable
-                type="email"
-                label="昵称"
-                variant="bordered"
-              
-                onClear={() => console.log("input cleared")}
-                className="max-w-xs mb-4"
-            />
-            <Input
-                isClearable
-                type="email"
-                label="密码"
-                variant="bordered"
+         用户名   <Input
                 
-                onClear={() => console.log("input cleared")}
+               
                 className="max-w-xs mb-4"
             />
-            <Input
-                isClearable
-                type="email"
-                label="确认密码"
-                variant="bordered"
-              
-                onClear={() => console.log("input cleared")}
+        昵称    <Input
+                
+                
                 className="max-w-xs mb-4"
             />
-            <Input
-                isClearable
+          密码  <Input
+                
                 type="email"
-                label="邮箱"
-                variant="bordered"
+                
             
-                onClear={() => console.log("input cleared")}
+                className="max-w-xs mb-4"
+            />
+        确认密码    <Input
+               
+              
+                className="max-w-xs mb-4"
+            />
+        邮箱    <Input
+              
                 className="max-w-xs mb-4"
             />
             <div className="flex items-center mb-4 ">
-                <Input
-                    isClearable
-                    type="email"
-                    label="验证码"
-                    variant="bordered"
-                 
-                    onClear={() => console.log("input cleared")}
+            验证码    <Input
+                   
                     className="max-w-xs"
                 />
                 <Button color="primary" className="ml-3">
