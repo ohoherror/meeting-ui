@@ -2,6 +2,9 @@
 import React from "react";
 // import { Table, Input, Button, TableHeader, TableColumn, TableBody, TableRow, TableCell, getKeyValue } from "@nextui-org/react";
 import FormCreate from './formCreate'
+import { Input, Button, Table,  } from 'antd';
+
+const { Column } = Table;
 
 const rows = [
     {
@@ -52,33 +55,30 @@ const columns = [
 export default function MeetingList() {
     return (
         <>
-            {/* <div className="flex mb-4 px-6">
+            <div className="flex mb-4 px-6">
                 {columns.map(ele => (
-                    <Input
-                        key={ele.key}
-                        type="email"
-                        label={ele.label}
-                        labelPlacement='outside-left'
-                    />
+                    <div>
+                        {ele.label}
+                        <Input
+                            key={ele.key}
+                            type="email"
+
+                        />
+                    </div>
+
                 ))}
                 <Button color="primary">
                     搜索会议室
                 </Button>
-            </div> */}
+            </div>
 
             <FormCreate></FormCreate>
-            {/* <Table aria-label="Example table with dynamic content">
-                <TableHeader columns={columns}>
-                    {(column) => <TableColumn key={column.key}>{column.label}</TableColumn>}
-                </TableHeader>
-                <TableBody items={rows}>
-                    {(item) => (
-                        <TableRow key={item.key}>
-                            {(columnKey) => <TableCell>{getKeyValue(item, columnKey)}</TableCell>}
-                        </TableRow>
-                    )}
-                </TableBody>
-            </Table> */}
+            <Table className="mt-3" dataSource={rows}>
+                    {columns.map(ele=>(
+                         <Column title={ele.label} dataIndex={ele.key} key={ele.key} />
+                    ))}
+
+            </Table>
         </>
     );
 }

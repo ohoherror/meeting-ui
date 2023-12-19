@@ -10,19 +10,25 @@ export default function App() {
             key: '1',
             label: '会议室列表',
             children: <MeetingList></MeetingList>
-        }
+        },
+        {
+          key: '2',
+          label: '预定历史',
+          children: <MeetingList></MeetingList>
+      }
     ]
     const onChange = () => {
 
     }
     return (
-        <div className="flex w-full flex-col">
+        <div className="flex w-full flex-col min-h-screen bg-white">
             <Tabs
                 defaultActiveKey="1"
                 items={items}
                 onChange={onChange}
                 indicatorSize={(origin) => origin - 16}
             />
+            
             {/* <Tabs aria-label="Options">
         <Tab key="photos" title="会议室列表">
           <MeetingList></MeetingList>
